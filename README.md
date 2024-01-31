@@ -20,33 +20,33 @@ Various methods for communicating through the web socket as well as signals and 
 Example usage:
 
 # Connecting to the server
-m_StompClient->setUrl(server_url);
-m_StompClient->connectToServer();
+m_StompClient->setUrl(server_url); 
+m_StompClient->connectToServer(); 
 
 # Connecting through STOMP
-StompFrameCreator stompFrameCreator;
-auto connectFrame = stompFrameCreator.createConnectFrame("1.2", "", "", "", 10000, 10000);
-m_StompClient->sendFrame(connectFrame);
+StompFrameCreator stompFrameCreator; 
+auto connectFrame = stompFrameCreator.createConnectFrame("1.2", "", "", "", 10000, 10000); 
+m_StompClient->sendFrame(connectFrame); 
 
 # Subscribing to a topic
-StompFrameCreator stompFrameCreator;
-QString topicName = "/topic/myTopic";
-auto subscribeFrame = stompFrameCreator.createSubscribeFrame(1, topicName, "auto");
-m_StompClient->sendFrame(subscribeFrame);
+StompFrameCreator stompFrameCreator; 
+QString topicName = "/topic/myTopic"; 
+auto subscribeFrame = stompFrameCreator.createSubscribeFrame(1, topicName, "auto"); 
+m_StompClient->sendFrame(subscribeFrame); 
 
 # Sending text message
-auto publishFrame = stompFrameCreator.createSendTextFrame("/controller/address", message);
-m_StompClient->sendFrame(publishFrame);
+auto publishFrame = stompFrameCreator.createSendTextFrame("/controller/address", message); 
+m_StompClient->sendFrame(publishFrame); 
 
 # Unsubscribe from topic
-StompFrameCreator stompFrameCreator;
-auto unsubscribeFrame = stompFrameCreator.createUnsubscribeFrame(1);
-m_StompClient->sendFrame(unsubscribeFrame);
+StompFrameCreator stompFrameCreator; 
+auto unsubscribeFrame = stompFrameCreator.createUnsubscribeFrame(1); 
+m_StompClient->sendFrame(unsubscribeFrame); 
 
 # Close connection to STOMP
-auto disconnectFrame = stompFrameCreator.createDisconnectFrame(1);
-m_StompClient->sendFrame(disconnectFrame);
+auto disconnectFrame = stompFrameCreator.createDisconnectFrame(1); 
+m_StompClient->sendFrame(disconnectFrame); 
 
 # Receiving message from server
-connect(m_StompClient, &StompClient::stompMessageReceived, this, &MyClass::stompReceivedSlot);
+connect(m_StompClient, &StompClient::stompMessageReceived, this, &MyClass::stompReceivedSlot); 
 
