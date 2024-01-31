@@ -1,4 +1,4 @@
-# stomp
+# StompLib
 StompLib is a Qt library for  clients communicating with the Stomp protocol. It includes the following functionality:
 
 A communication frame is modelled in the class StompFrame.
