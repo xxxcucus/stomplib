@@ -1,5 +1,4 @@
 cmake_minimum_required (VERSION 3.16)
-project (stomptest)
 
 cmake_policy(SET CMP0020 NEW)
 cmake_policy(SET CMP0043 NEW)
@@ -9,7 +8,7 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 include_directories(
 	${CMAKE_CURRENT_SOURCE_DIR}
-	${CMAKE_CURRENT_SOURCE_DIR}/../../stomp
+	${CMAKE_CURRENT_SOURCE_DIR}/stomp
 	${Qt6Core_INCLUDE_DIRS}
 )
 
