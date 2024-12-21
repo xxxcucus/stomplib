@@ -1,16 +1,16 @@
 #include "stompframecreator.h"
 
-std::shared_ptr<StompFrame> StompFrameCreator::createConnectFrame(const QString& acceptVersion, const QString& host, const QString& user, const QString& password, int headerBeatSelf, int heartBeatServer) {
+std::shared_ptr<StompFrame> StompFrameCreator::createConnectFrame(const QString& acceptVersion, const QString& host, const QString& user, const QString& password, int heartBeatSelf, int heartBeatServer) {
     auto stompFrame = std::make_shared<StompFrame>();
     stompFrame->setCommand(StompFrame::HeaderTypes::CONNECT);
-    configureStompConnectFrame(stompFrame, acceptVersion, host);
+    configureStompConnectFrame(stompFrame, acceptVersion, host, user, password, heartBeatSelf, heartBeatServer);
     return stompFrame;
 }
 
-std::shared_ptr<StompFrame> StompFrameCreator::createStompFrame(const QString& acceptVersion, const QString& host, const QString& user, const QString& password, int headerBeatSelf, int heartBeatServer) {
+std::shared_ptr<StompFrame> StompFrameCreator::createStompFrame(const QString& acceptVersion, const QString& host, const QString& user, const QString& password, int heartBeatSelf, int heartBeatServer) {
     auto stompFrame = std::make_shared<StompFrame>();
     stompFrame->setCommand(StompFrame::HeaderTypes::STOMP);
-    configureStompConnectFrame(stompFrame, acceptVersion, host);
+    configureStompConnectFrame(stompFrame, acceptVersion, host, user, password, heartBeatSelf, heartBeatServer);
     return stompFrame;
 }
 
